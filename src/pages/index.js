@@ -5,6 +5,7 @@ import MissionText from "../components/index/missionText"
 import CoverPhoto from "../components/index/coverPhoto"
 import ActionShot from "../components/index/actionShot"
 import Layout from "../components/layout"
+import "../components/dummyStyle.css"
 import styled from "@emotion/styled";
 
 
@@ -32,7 +33,7 @@ const IndexPage = ({data}) => {
   const cover_url = data.prismic.allHomepages.edges[0].node.cover_photo.url
   const action_url =  data.prismic.allHomepages.edges[0].node.action_shot.url
 
-  return <div>
+  return <Layout>
     <CoverPhoto url = {cover_url}></CoverPhoto>
     <Section>
         <FlexThing>
@@ -44,7 +45,7 @@ const IndexPage = ({data}) => {
         </FlexThing>
     </Section>
     
-  </div>
+  </Layout>
 
 }
 

@@ -15,13 +15,13 @@ import styles from "./index.module.css"
 
 //
 
-const missionHeader = ({children}) => (
-    <>
-        <div className = {styles.header}>
+{/* <div className = {styles.header}>
             {children}
         </div>
-        <div className = {styles.highlight} style= {{position: "relative", top:'-45px'}}/>
-    </>
+        <div className = {styles.highlight} style= {{position: "relative", top:'-45px'}}/> */}
+
+const missionHeader = ({children}) => (
+    <span className = {styles.highlight2}> {children} </span>
     
     
 )

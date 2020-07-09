@@ -2,15 +2,14 @@ import React from "React"
 import styled from "@emotion/styled";
 
 const Background = styled("div")`
-        content: '';
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        z-index: -1;
-        
-        background: url(${props => props.background}) no-repeat;
-        background-size: cover;
+    content: '';
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
     
+    background: url(${props => props.background}) no-repeat;
+    background-size: cover;
 `
 const Content = styled("div")`
     position: relative;
