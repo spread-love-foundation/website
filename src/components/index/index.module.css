@@ -10,13 +10,6 @@
 }
 
 .highlight{
-    width: 338px;
-    height: 32px;
-
-    background: rgba(85, 224, 226, 0.6);
-}
-
-.highlight2{
     font-family: DM Serif Text;
     font-style: normal;
     font-weight: normal;
@@ -43,8 +36,26 @@
 }
 
 .menuitem{
+    margin-right: 20px;
+
+    color: #54504E;
     font-family: Red Hat Text;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
+
+    text-decoration: none;
+}
+
+.activemenuitem{
+    margin-right: 20px;
+
+    color: #54504E;
+    font-family: Red Hat Text;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(85, 224, 226, 0.6) 50%);
+
+    text-decoration: none;
 }

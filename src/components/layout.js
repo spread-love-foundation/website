@@ -14,7 +14,6 @@ const Layout = ({ children }) => {
         }
       }
     `)
-    console.log(data.site.siteMetadata.title)
       
     return (
       <>

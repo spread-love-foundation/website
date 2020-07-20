@@ -1,8 +1,10 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import {Navbar,NavbarBrand,Nav,NavItem,Collapse} from "reactstrap"
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import styles from "./index/index.module.css"
+import styled from "@emotion/styled";
 import logo from "../images/SLF-logo.png"
 
 /*<Link className = {styles.menuitem} to="/" style={{color: `black`,textDecoration: `none`}}>
@@ -12,24 +14,67 @@ import logo from "../images/SLF-logo.png"
 // <Navbar style = {{width: "100%", paddingTop: "0", paddingBottom: "0", margin: "0 auto"}}>
 //<NavItem styles = {{marginLeft: "1rem", marginRight: "1rem"}}>
 //<Nav className="mr-auto" styles = {{listStyle: "none", listStyleType: "none"}}>
+//<Navbar styles = {{width: "100%", float: "left", margin: "0 0 3em 0", padding: "0", listStyle: "none" }}>
+
+/* <Navbar.Collapse>
+<Nav>
+    <NavItem>
+            {siteTitle}
+    </NavItem>
+    <NavItem>
+        <Link className = {styles.menuitem} to="/" style={{color: `black`,textDecoration: `none`}}>
+            Menu 2
+        </Link>
+    </NavItem>
+</Nav>
+</Navbar.Collapse> */
+
+// Note we use Gatsby <Link> instead of <Navbar.Link> for load-time optimization
+
+const NavItems = styled('Nav')`
+    a {
+        &:hover {
+            color: #54504E;
+            background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(85, 224, 226, 0.6) 50%);
+            transition: 100ms ease-in-out background;
+        }
+    }
+`
 
 const Header = ({ siteTitle }) => (
     <Navbar>
-        <NavbarBrand  href='/'>
-            <img src={logo} alt = "SLF logo" width="100" height="100"/>
-        </NavbarBrand>
-        <Collapse>
-            <Nav>
-                <NavItem>
-                        {siteTitle}
-                </NavItem>
-                <NavItem>
-                    <Link className = {styles.menuitem} to="/" style={{color: `black`,textDecoration: `none`}}>
-                        Menu 2
-                    </Link>
-                </NavItem>
-            </Nav>
-        </Collapse>
+        <Navbar.Brand>
+            <Link to='/'>
+                <img src={logo} alt = {siteTitle+"logo"} width="80" height="80"/>
+            </Link>
+        </Navbar.Brand>
+        <Nav className="ml-auto">
+            <Nav.Item>
+                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/" style={{textDecoration: `none`}}>
+                    OUR MISSION
+                </Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
+                    GET INVOLVED
+                </Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
+                    DONATE
+                </Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
+                    SUBSCRIBE
+                </Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
+                    ABOUT US
+                </Link>
+            </Nav.Item>
+        </Nav>
     </Navbar>
 )
 

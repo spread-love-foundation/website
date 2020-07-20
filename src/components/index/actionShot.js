@@ -13,7 +13,7 @@ const ActionStyle = styled("div")`
 
 
 const actionShot = (props) => {
-    return <ActionStyle style={{marginTop: "60px"}}> <img src={props.url}/></ActionStyle>       
+    return <ActionStyle style={{marginTop: "60px"}}> <img src={props.url} alt = "Classroom presentation"/></ActionStyle>       
 }
 
 export default actionShot

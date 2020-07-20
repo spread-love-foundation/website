@@ -6,6 +6,7 @@ import CoverPhoto from "../components/index/coverPhoto"
 import ActionShot from "../components/index/actionShot"
 import Layout from "../components/layout"
 import "../components/dummyStyle.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from "@emotion/styled";
 
 
