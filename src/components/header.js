@@ -31,16 +31,6 @@ import logo from "../images/SLF-logo.png"
 
 // Note we use Gatsby <Link> instead of <Navbar.Link> for load-time optimization
 
-const NavItems = styled('Nav')`
-    a {
-        &:hover {
-            color: #54504E;
-            background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(85, 224, 226, 0.6) 50%);
-            transition: 100ms ease-in-out background;
-        }
-    }
-`
-
 const Header = ({ siteTitle }) => (
     <Navbar>
         <Navbar.Brand>
