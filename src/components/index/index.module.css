@@ -1,20 +1,8 @@
-.header{
-    font-family: DM Serif Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 63px;
-    line-height: 86px;
-
-    color: #54504E;
-    
-}
-
 .highlight{
     font-family: DM Serif Text;
     font-style: normal;
     font-weight: normal;
     font-size: 63px;
-    line-height: 86px;
     color: #54504E;
     
     background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(85, 224, 226, 0.6) 50%);

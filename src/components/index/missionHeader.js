@@ -1,5 +1,5 @@
 import React from "React"
-import styles from "./index.module.css"
+import styles from "../headings.module.css"
 // position: absolute;
 // width: 364px;
 // height: 89px;
@@ -21,7 +21,7 @@ import styles from "./index.module.css"
         <div className = {styles.highlight} style= {{position: "relative", top:'-45px'}}/> */
 
 const missionHeader = ({children}) => (
-    <span className = {styles.highlight}> {children} </span>
+    <h1 className = {styles.bigHeading}> {children} </h1>
 )
 
 export default missionHeader

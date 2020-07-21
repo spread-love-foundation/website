@@ -4,7 +4,6 @@ import React from "react"
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import styles from "./index/index.module.css"
-import styled from "@emotion/styled";
 import logo from "../images/SLF-logo.png"
 
 /*<Link className = {styles.menuitem} to="/" style={{color: `black`,textDecoration: `none`}}>
@@ -60,7 +59,7 @@ const Header = ({ siteTitle }) => (
                 </Link>
             </Nav.Item>
             <Nav.Item>
-                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
+                <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/about-us" style={{textDecoration: `none`}}>
                     ABOUT US
                 </Link>
             </Nav.Item>
