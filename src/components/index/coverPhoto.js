@@ -1,12 +1,12 @@
 import React from "React"
 import styled from "@emotion/styled";
+import arrow from "../../icons/Vector.svg"
 import { Link } from "gatsby"
 
 const Background = styled("div")`
     position: relative;
     width: 100%;
     height: 100vh;
-    z-index: -1;
     
     background: url(${props => props.background}) no-repeat;
     background-size: cover;
@@ -30,6 +30,16 @@ const ContentContainer = styled("div")`
     display: flex;
     flex-direction: column;
 `
+
+const StyledLink = styled(Link)`
+    max-width: 300px;
+    display: flex;
+
+    :hover{
+        text-decoration: none;
+    }
+`
+
 //max-width: 830px;
 const Content = styled("div")`
     padding-top: 3em;
@@ -45,17 +55,19 @@ const Content = styled("div")`
     }
 
 `
-const LearnMore = styled("div")`
-    h2 {
+const LearnMore = styled.p`
         font-family: DM Serif Display;
         font-style: normal;
         font-weight: normal;
         font-size: 48px;
         line-height: 66px;
+        background: linear-gradient(180deg,rgba(255,255,255,0) 91%, rgba(85, 224, 226, 0.6) 50%);
 
         color: #FFFFFF;
 
-    }
+        :hover{
+            text-decoration: none;
+        }
 `
 //color: #FFFFFF;
 //<Link to='/404'>Learn More</Link>
@@ -68,9 +80,10 @@ const coverPhoto = (props) => {
                     <Content>
                         <h1>Invest in your youth, and watch as the love you give to them is spread onto others.</h1>
                     </Content>
-                    <LearnMore>
-                        <h2>Learn More</h2>
-                    </LearnMore>
+                    <StyledLink to="/about-us">
+                        <LearnMore>Learn More</LearnMore>
+                        <img style={{paddingLeft: "25px"}} src={arrow} />
+                    </StyledLink>
                 </ContentContainer>
         </Background>
 }

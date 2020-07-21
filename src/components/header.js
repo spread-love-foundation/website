@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import styles from "./index/index.module.css"
 import logo from "../images/SLF-logo.png"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /*<Link className = {styles.menuitem} to="/" style={{color: `black`,textDecoration: `none`}}>
             {siteTitle}
