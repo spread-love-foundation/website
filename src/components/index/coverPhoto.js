@@ -69,10 +69,6 @@ const LearnMore = styled.p`
             text-decoration: none;
         }
 `
-//color: #FFFFFF;
-//<Link to='/404'>Learn More</Link>
-
-//Invest in your youth, and watch as the love you give to them is spread onto others.
 
 const coverPhoto = (props) => {
     return <Background background = {props.url}>
@@ -82,7 +78,7 @@ const coverPhoto = (props) => {
                     </Content>
                     <StyledLink to="/about-us">
                         <LearnMore>Learn More</LearnMore>
-                        <img style={{paddingLeft: "25px"}} src={arrow} />
+                        <img style={{paddingLeft: "25px"}} src={arrow} alt=''/>
                     </StyledLink>
                 </ContentContainer>
         </Background>

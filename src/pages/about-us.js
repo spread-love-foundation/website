@@ -80,17 +80,7 @@ const AboutUs = ({data}) => {
                     <h2 className={styles.mediumHeadingSecondary}>{title2}</h2>
                     <ProfileSection>
                         {data.prismic.allAbout_uss.edges[0].node.profile.map(
-                            profile => <Profile headshot={profile.headshot.url} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
-                        {data.prismic.allAbout_uss.edges[0].node.profile.map(
-                            profile => <Profile headshot={profile.headshot.url} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
-                        {data.prismic.allAbout_uss.edges[0].node.profile.map(
-                            profile => <Profile headshot={profile.headshot.url} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
-                        {data.prismic.allAbout_uss.edges[0].node.profile.map(
-                            profile => <Profile headshot={profile.headshot.url} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
-                        {data.prismic.allAbout_uss.edges[0].node.profile.map(
-                            profile => <Profile headshot={profile.headshot.url} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
-                        {data.prismic.allAbout_uss.edges[0].node.profile.map(
-                            profile => <Profile headshot={profile.headshot.url} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
+                            profile => <Profile headshot={profile.headshot.url} key = {profile.name[0].text} name = {profile.name[0].text} position = {profile.position[0].text}/> )}
                     </ProfileSection>
                 </Section>
             </Body>
