@@ -1,17 +1,24 @@
 import React from "react"
 import styled from "@emotion/styled"
-import insta from "../icons/insta-logo.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    faInstagram,
+    faGithub,
+  } from "@fortawesome/free-brands-svg-icons"
+  
 
 const Barney = styled("div")`
     margin-top: 400px;
     width: 100%;
-    height: 20vh;
 
     background-color: #3B2A83;
 `
 
 const FooterContainer = styled("div")`
     padding-top: 80px;
+    padding-bottom: 40px;
+    padding-left: 55px;
+
 
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +28,6 @@ const FooterContainer = styled("div")`
 const SubscriptionContainer = styled("form")`
     display: flex;
     flex-wrap: wrap;
-    padding-left: 55px;
 
     input:focus,
     select:focus,
@@ -42,8 +48,22 @@ const EmailInput = styled("input")`
     padding-left: 12px;
     padding-right: 12px;
 
-    width: 435px;
+    width: 220px;
     height: 44px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width:400px){
+        width: 320px;
+    }
+
+    @media screen and (min-width:505px){
+        width: 435px;
+    }
+
+    @media screen and (min-width:750px){
+        margin-bottom: 0px;
+    }
+
 `
 
 const JoinButton = styled("input")`
@@ -51,6 +71,8 @@ const JoinButton = styled("input")`
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 8px;
+    margin-bottom: 20px;
+    margin-right: 20px;
 
     font-family: Red Hat Text;
     font-style: normal;
@@ -62,19 +84,9 @@ const JoinButton = styled("input")`
     width: 121px;
     height: 44px;
 
-`
-
-const JoinText = styled("p")`
-    font-family: Red Hat Text;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-
-    padding: 10px;
-    margin: auto;
-
-    color: #5E7D66;
+    @media screen and (min-width:643px){
+        margin-bottom: 0px;
+    }
 `
 
 const SocialList = styled("div")`
@@ -83,9 +95,9 @@ const SocialList = styled("div")`
     padding-right: 20px;
 `
 
-const SocialIcon = ({src}) => (
-    <a style={{marginRight:"20px"}} href="https://www.instagram.com/spread.love.foundation/">
-        <img width="25" height="25" alt="Instagram Link" src={src}/>
+const SocialIcon = ({icon, link}) => (
+    <a style={{marginRight:"20px", fontSize: "25px"}} href={link} target="_blank">
+        <FontAwesomeIcon color="white"  icon={icon}/>
     </a>
 );
 
@@ -100,7 +112,8 @@ const Footer = () => (
                 <input type="hidden" name="mc_signupsource" value="hosted"/>
             </SubscriptionContainer>
             <SocialList>
-                <SocialIcon src={insta}/>
+                <SocialIcon icon={faGithub} link = "https://github.com/spread-love-foundation/website"/>
+                <SocialIcon icon={faInstagram} link = "https://www.instagram.com/spread.love.foundation/"/>
             </SocialList>
         </FooterContainer>
     </Barney>

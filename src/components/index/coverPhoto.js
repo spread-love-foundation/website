@@ -4,35 +4,65 @@ import arrow from "../../icons/Vector.svg"
 import { Link } from "gatsby"
 
 const Background = styled("div")`
-    position: relative;
     width: 100%;
-    height: 100vh;
+    height: 680px;
+
+    @media screen and (min-height:675px){
+        height: 100vh;
+    }
+
+    @media screen and (min-height:850px){
+        height: 850px;
+    }
     
     background: url(${props => props.background}) no-repeat;
-    background-size: cover;
 `
 
-// position: relative;
-// z-index = 1;
-// padding-top: 3em;
-//     padding-bottom: 3em;
-//     margin: auto auto;
-//     max-width: 830px;
-
-//    margin: 0 auto;
-//
 const ContentContainer = styled("div")`
     position: relative;
-    top: 220px;
-    left: 195px;
-    max-width: 830px;
-    height: 90%;
+    top: 40px;
+    left: 40px;
+    width: 270px;
+
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width:350px){
+        width: 300px;
+    }
+
+    @media screen and (min-width:386px){
+        left: 60px;
+    }
+
+    @media screen and (min-width:483px){
+        top: 60px;
+        left: 80px;
+        width: 400px;
+    }
+
+    @media screen and (min-width:600px){
+        top: 120px;
+        left: 80px;
+        width: 500px;
+        margin-right: none;
+    }
+
+    @media screen and (min-width:730px){
+        left: 195px;
+    }
+
+    @media screen and (min-width:992px){
+        top: 268px;
+        width: 750px;
+    }
+    
+    @media screen and (min-width:1040px){
+        width: 830px;
+    }
 `
 
 const StyledLink = styled(Link)`
-    max-width: 300px;
     display: flex;
 
     :hover{
@@ -40,16 +70,23 @@ const StyledLink = styled(Link)`
     }
 `
 
-//max-width: 830px;
 const Content = styled("div")`
-    padding-top: 3em;
-    padding-bottom: 2em;
+
+    @media screen and (min-width:600px){
+        padding-bottom: 2em;
+    }
+    
 
     h1 {
         font-family: DM Serif Text;
         font-style: normal;
         font-weight: normal;
-        font-size: 58px;
+        font-size: 46px;
+
+        @media screen and (min-width:483px){
+            font-size: 58px;
+        }
+
         line-height: 77px;
         color: #FFFFFF
     }
@@ -59,7 +96,12 @@ const LearnMore = styled.p`
         font-family: DM Serif Display;
         font-style: normal;
         font-weight: normal;
-        font-size: 48px;
+        font-size: 36px;
+
+        @media screen and (min-width:483px){
+            font-size: 48px;
+        }
+
         line-height: 66px;
         background: linear-gradient(180deg,rgba(255,255,255,0) 91%, rgba(85, 224, 226, 0.6) 50%);
 

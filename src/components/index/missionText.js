@@ -1,12 +1,27 @@
 import React from "React"
-import styles from "./index.module.css"
+import styled from "@emotion/styled";
+
+const Mission = styled('div')`    
+    margin-top: 1em;
+    margin-right: 1em;
+
+    @media screen and (min-width:450px){
+        margin-right: 2em;
+    }
+
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 34px;
+    
+    color: #000000;
+`
 
 const missionText = ({children}) => (
-    <div className = {styles.sometext} styles = {{    maxWidth: "800px",
-        marginTop: "1em",
-        marginTight: "2em"}}>
+    <Mission>
         {children}
-    </div>
+    </Mission>
 )
 
 export default missionText

@@ -8,8 +8,12 @@ import { graphql } from "gatsby"
 
 const Body = styled("div")`
     margin-left: 47px;
-    margin-right: 170px;
+    margin-right: 47px;
     margin-top: 65px;
+
+    @media screen and (min-width:500px){
+        margin-right: 170px;
+    }
 `
 
 const Section = styled("div")`
@@ -31,10 +35,13 @@ const Text = styled("div")`
 
 const ProfileSection = styled("div")`
     margin-top: 100px;
-    margin-right: -60px;
 
     display: flex;
     flex-wrap: wrap;
+
+    @media screen and (min-width:500px){
+        margin-right: -60px;
+    }
 `
 
 const Name = styled("div")`
@@ -44,6 +51,20 @@ const Name = styled("div")`
     font-size: 26px;
 
     text-align: center;
+`
+
+const ProfilePicture = styled("img")`
+    width: 200px; 
+    height: 200px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width:500px){
+        width: 327px; 
+        height: 327px;
+    }
 `
 
 const Position = styled("div")`
@@ -58,7 +79,7 @@ const Position = styled("div")`
 const Profile = ({headshot, name, position}) => (
     // marginRight works well, except it depends on the ProfileSection margin
     <div style={{marginRight: "60px", marginBottom: "60px"}}>
-        <img src = {headshot} alt = {name+"headshot"} width="327" height="327"/>
+        <ProfilePicture src = {headshot} alt = {name+"headshot"} />
         <Name> {name} </Name>
         <Position> {position} </Position>
     </div>
