@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
+    faFacebook,
     faInstagram,
     faGithub,
   } from "@fortawesome/free-brands-svg-icons"
@@ -60,7 +61,7 @@ const EmailInput = styled("input")`
         width: 435px;
     }
 
-    @media screen and (min-width:750px){
+    @media screen and (min-width:795px){
         margin-bottom: 0px;
     }
 
@@ -112,6 +113,7 @@ const Footer = () => (
                 <input type="hidden" name="mc_signupsource" value="hosted"/>
             </SubscriptionContainer>
             <SocialList>
+                <SocialIcon icon={faFacebook} link = "https://www.facebook.com/SLForganization"/>
                 <SocialIcon icon={faGithub} link = "https://github.com/spread-love-foundation/website"/>
                 <SocialIcon icon={faInstagram} link = "https://www.instagram.com/spread.love.foundation/"/>
             </SocialList>
