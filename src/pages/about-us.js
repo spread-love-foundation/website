@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import styles from "../components/headings.module.css"
 import styled from "@emotion/styled";
+import SEO from "../components/seo"
 import { graphql } from "gatsby"
 
 
@@ -92,6 +93,7 @@ const AboutUs = ({data}) => {
     const title2 = data.prismic.allAbout_uss.edges[0].node.meet_our_team_title[0].text
 
     return <Layout>
+            <SEO title="About Us" />
             <Body>
                 <Section>
                     <h2 className={styles.mediumHeadingPrimary}>{title1}</h2>

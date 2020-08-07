@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import "../components/dummyStyle.css";
 import styled from "@emotion/styled";
 import styles from "../components/headings.module.css"
+import SEO from "../components/seo"
 
 const Section = styled("div")`
     margin-top: 2em;
@@ -61,6 +62,7 @@ const IndexPage = ({data}) => {
   const action_url =  data.prismic.allHomepages.edges[0].node.action_shot.url
 
   return  <Layout>
+            <SEO title="Home"/>
             <CoverPhoto url = {cover_url}></CoverPhoto>
             <Section>
                 <FlexThing>
