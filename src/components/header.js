@@ -30,7 +30,7 @@ const Header = ({ siteTitle }) => (
                     </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
+                    <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/donate" style={{textDecoration: `none`}}>
                         DONATE
                     </Link>
                 </Nav.Item>
