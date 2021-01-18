@@ -32,7 +32,7 @@ const Section = styled("div")`
 `;
 
 // flex-wrap prevents action shot image from compressing in a smaller screen
-const FlexThing = styled("div")`
+const FlexContainer = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -55,30 +55,93 @@ const TextSection = styled("div")`
   }
 `;
 
+const GetInvolvedIcon = styled("img")`
+  width: 153px;
+  height: 127px;
+`;
+
+const GetInvolvedContainer = styled("div")`
+  width: 100%;
+  height: 680px;
+  background: #107e7e;
+
+  h1 {
+    font-family: DM Serif Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 88px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  p {
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+
+    color: #ffffff;
+  }
+`;
+// const GetInvolvedRow = styled("div")``;
+
+// TODO:
+//    (1) Make element to hold flex column of icon and description
+//    (2) Add icon to prismic
+//    (3) Add description to prismic
+//    (4) Fix padding of elements
+
+const LearnMoreButton = styled("div")``;
+
+const GetInvolvedCell = ({ icon, persona, story }) => (
+  <div>
+    <GetInvolvedIcon src = {icon} alt = {"Get involved as a " + persona}/>
+    <p>
+      <span style={{ fontWeight: "bold" }}>{persona + ": "}</span>
+      {story}
+    </p>
+  </div>
+);
+
 const IndexPage = ({ data }) => {
-  const homePageHeading =
-    data.prismic.allHomepages.edges[0].node.home_page_heading[0].text;
-  const homePageDescription =
-    data.prismic.allHomepages.edges[0].node.home_page_description[0].text;
-  const cover_url = data.prismic.allHomepages.edges[0].node.cover_photo.url;
-  const action_url = data.prismic.allHomepages.edges[0].node.action_shot.url;
+  const page_data = data.prismic.allHomepages.edges[0].node;
+  const homePageHeading = page_data.home_page_heading[0].text;
+  const homePageDescription = page_data.home_page_description[0].text;
+  const cover_url = page_data.cover_photo.url;
+  const action_url = page_data.action_shot.url;
 
   return (
     <Layout>
       <SEO title="Home" />
       <CoverPhoto url={cover_url}></CoverPhoto>
       <Section>
-        <FlexThing>
+        <FlexContainer>
           <TextSection>
             <h1 className={styles.bigHeading}> {homePageHeading} </h1>
             <MissionText>{homePageDescription}</MissionText>
           </TextSection>
           <ActionShot url={action_url}></ActionShot>
-        </FlexThing>
+        </FlexContainer>
       </Section>
+      <GetInvolvedContainer>
+        <h1>Get Involved</h1>
+        <FlexContainer>
+          {page_data.get_involved.map((narrative) => (
+            <GetInvolvedCell
+              icon={narrative.icon.url}
+              persona={narrative.persona}
+              story={narrative.story}
+            />
+          ))}
+        </FlexContainer>
+      </GetInvolvedContainer>
     </Layout>
   );
 };
+
+// page_data.get_involved.map(
 
 export const query = graphql`
   {
@@ -90,6 +153,11 @@ export const query = graphql`
             home_page_heading
             home_page_description
             action_shot
+            get_involved {
+              icon
+              persona
+              story
+            }
           }
         }
       }
