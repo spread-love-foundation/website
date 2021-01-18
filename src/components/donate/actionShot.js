@@ -13,16 +13,14 @@ const ActionStyle = styled("div")`
           }
     }
 `
-// border-radius: 50%;
-// object-fit: cover;
 
 
 const actionShot = ({url}) => {
     //style={{marginTop: "60px"}}
-    // return  <ActionStyle > 
-    //             <img src={url} alt = "Classroom presentation"/>
-    //         </ActionStyle>     
-    return   <img src={url} alt = "Classroom presentation"/>
+    return  <ActionStyle > 
+                <img src={url} alt = "Classroom presentation"/>
+            </ActionStyle>     
+    //return   <img src={url} alt = "Classroom presentation"/>
 }
 
 export default actionShot
