@@ -7,10 +7,12 @@ import ActionShot from "../components/donate/actionShot";
 import "@fontsource/red-hat-text";
 import "@fontsource/dm-serif-text";
 import { graphql } from "gatsby";
+import { Link } from "gatsby";
 
 const FlexContainer = styled("div")`
+  margin-top: 80px;
   margin-bottom: 80px;
-  padding-left: 5%;
+  padding-left: 10%;
 
   display: flex;
   flex-wrap: wrap;
@@ -35,6 +37,23 @@ const Heading = styled("div")`
   color: #54504e;
 `;
 
+const Rectangle = styled("div")`
+  height: 50px;
+  width: 85%;
+  background: #3b2a83;
+  border-radius: 31px;
+
+  p {
+    text-align: center;
+
+    font-family: DM Serif Display;
+    font-size: 24px;
+    line-height: 50px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+`;
+
 const Donate = ({ data }) => {
   const page_data = data.prismic.allDonates.edges[0].node;
   return (
@@ -43,12 +62,19 @@ const Donate = ({ data }) => {
       <FlexContainer>
         <ActionShot url={page_data.action_shot.url} />
         <TextSection>
-          <Heading>
-            {page_data.title[0].text}
-          </Heading>
+          <Heading>{page_data.title[0].text}</Heading>
           <div>{page_data.tagline[0].text}</div>
-          <br/>
+          <br />
           <div>{page_data.description}</div>
+          <br />
+          <a
+            href="https://charity.gofundme.com/o/en/campaign/spread-love-foundation"
+            target="_blank"
+          >
+            <Rectangle>
+              <p>{"Click here to securely donate to our GoFundMe"}</p>
+            </Rectangle>
+          </a>
         </TextSection>
       </FlexContainer>
     </Layout>
