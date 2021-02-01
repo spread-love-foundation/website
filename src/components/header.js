@@ -35,8 +35,8 @@ const Header = ({ siteTitle }) => (
                     </Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/404" style={{textDecoration: `none`}}>
-                        SUBSCRIBE
+                    <Link className = {styles.menuitem} activeClassName = {styles.activemenuitem} to="/contact" style={{textDecoration: `none`}}>
+                        CONTACT
                     </Link>
                 </Nav.Item>
                 <Nav.Item>
