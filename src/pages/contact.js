@@ -1,14 +1,28 @@
-import React from "react";
-import SEO from "../components/seo";
-import Layout from "../components/layout";
-import styled from "@emotion/styled";
-import "@fontsource/red-hat-text";
-import "@fontsource/dm-serif-text";
+import React from "react"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
+import styled from "@emotion/styled"
+import "@fontsource/red-hat-text"
+import "@fontsource/dm-serif-text"
 
 const PageMargin = styled("div")`
   margin-left: 10%;
   padding-top: 5%;
-`;
+`
+
+const ContactUsSection = styled("div")`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+
+  padding-bottom: 150px;
+`
+
+const ContactUsTextSection = styled("div")`
+  flex-basis: 60%;
+  padding-top: 20px;
+`
 
 const Heading = styled("div")`
   font-family: DM Serif Text;
@@ -21,11 +35,16 @@ const Heading = styled("div")`
   }
 
   color: #54504e;
-`;
+`
+
+const HeadingCaption = styled("div")`
+  font-family: Red Hat Text;
+  font-size: 18px;
+  line-height: 24px;
+`
 
 const EmailRow = styled("div")`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
 
   img {
@@ -48,13 +67,13 @@ const EmailRow = styled("div")`
       font-size: 24px;
     }
   }
-`;
+`
 
 const NewsletterBox = styled("div")`
   width: 100%;
   padding-bottom: 72px;
   background: #107e7e;
-`;
+`
 
 const NewsletterText = styled("div")`
   font-family: Red Hat Text;
@@ -69,7 +88,7 @@ const NewsletterText = styled("div")`
   @media screen and (min-width: 450px) {
     font-size: 24px;
   }
-`;
+`
 
 const SignUpButton = styled("div")`
   background: #3b2a83;
@@ -90,44 +109,74 @@ const SignUpButton = styled("div")`
     color: #ffffff;
 
     @media screen and (min-width: 450px) {
-        font-size: 24px;
-      }
+      font-size: 24px;
+    }
   }
-`;
+`
 
 // TODO: make a reusable button for sign-up
 
 const Contact = ({ data }) => {
+  if (!data) {
+    return null
+  }
+  const page_data = data.allPrismicContactUs.nodes[0].data
+
   return (
     <Layout>
-      <SEO title="Contact" />
+      <SEO title={page_data.title.text} />
       <PageMargin>
-        <Heading>{"Contact Us"}</Heading>
-        <br />
-        <br />
-        <br />
-        <EmailRow>
-          <img src="/icons/mail_icon.png"></img>
-          <p>{"info@spreadlovefoundation.com"}</p>
-        </EmailRow>
+        <ContactUsSection>
+          <ContactUsTextSection>
+            <Heading>{page_data.title.text}</Heading>
+            <HeadingCaption>{page_data.contact_caption}</HeadingCaption>
+            <br />
+            <br />
+            <EmailRow>
+              <img src="/icons/mail_icon.png"></img>
+              <a href={"mailto: " + page_data.email}>
+                <p>{page_data.email}</p>
+              </a>
+            </EmailRow>
+          </ContactUsTextSection>
+          <img src={page_data.image.url}></img>
+        </ContactUsSection>
       </PageMargin>
       <NewsletterBox>
         <PageMargin>
           <Heading style={{ color: "#FFFFFF" }}>
-            {"Keep up with our initiatives"}
+            {page_data.newsletter_title}
           </Heading>
-          <NewsletterText>
-            {
-              "Sign up for our newsletter to stay up to date with our current projects and initiatives. Feel free to contact us with any questions with the information listed above."
-            }
-          </NewsletterText>
+          <NewsletterText>{page_data.newsletter_text}</NewsletterText>
           <SignUpButton>
-            <p>{"NEWSLETTER SIGN UP"}</p>
+            <p>{page_data.sign_up_button_text}</p>
           </SignUpButton>
         </PageMargin>
       </NewsletterBox>
     </Layout>
-  );
-};
+  )
+}
 
-export default Contact;
+export const query = graphql`
+  {
+    allPrismicContactUs {
+      nodes {
+        data {
+          title {
+            text
+          }
+          sign_up_button_text
+          newsletter_title
+          newsletter_text
+          image {
+            url
+          }
+          email
+          contact_caption
+        }
+      }
+    }
+  }
+`
+
+export default Contact

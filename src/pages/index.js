@@ -58,12 +58,14 @@ const TextSection = styled("div")`
 const GetInvolvedIcon = styled("img")`
   width: 153px;
   height: 127px;
+  margin-bottom: 40px;
 `
 
 const GetInvolvedContainer = styled("div")`
   width: 100%;
-  height: 680px;
   background: #107e7e;
+  padding-top: 50px;
+  padding-bottom: 100px;
 
   h1 {
     font-family: DM Serif Text;
@@ -73,6 +75,8 @@ const GetInvolvedContainer = styled("div")`
     line-height: 88px;
     text-align: center;
     color: #ffffff;
+
+    margin-bottom: 100px;
   }
 
   p {
@@ -85,7 +89,14 @@ const GetInvolvedContainer = styled("div")`
     color: #ffffff;
   }
 `
-// const GetInvolvedRow = styled("div")``;
+const GetInvolvedRow = styled("div")`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  
+  margin-left: 3rem;
+`
 
 // TODO:
 //    (1) Make element to hold flex column of icon and description
@@ -96,7 +107,15 @@ const GetInvolvedContainer = styled("div")`
 const LearnMoreButton = styled("div")``
 
 const GetInvolvedCell = ({ icon, persona, story }) => (
-  <div>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      maxWidth:"18rem",
+      marginRight:"3rem"
+    }}
+  >
     <GetInvolvedIcon src={icon} alt={"Get involved as a " + persona} />
     <p>
       <span style={{ fontWeight: "bold" }}>{persona + ": "}</span>
@@ -107,7 +126,7 @@ const GetInvolvedCell = ({ icon, persona, story }) => (
 
 const IndexPage = ({ data }) => {
   if (!data) {
-    return null;
+    return null
   }
 
   const page_data = data.allPrismicHomepage.nodes[0].data
@@ -131,15 +150,16 @@ const IndexPage = ({ data }) => {
       </Section>
       <GetInvolvedContainer>
         <h1>Get Involved</h1>
-        <FlexContainer>
+        <GetInvolvedRow>
           {page_data.get_involved.map(narrative => (
             <GetInvolvedCell
+              styles={{ maxWidth: "400px" }}
               icon={narrative.icon.url}
               persona={narrative.persona}
               story={narrative.story}
             />
           ))}
-        </FlexContainer>
+        </GetInvolvedRow>
       </GetInvolvedContainer>
     </Layout>
   )
