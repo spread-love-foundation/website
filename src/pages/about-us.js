@@ -25,6 +25,9 @@ const Section = styled("div")`
 
 const Text = styled("div")`
   margin-top: 40px;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
 
   font-family: Red Hat Display;
   font-style: normal;
@@ -92,17 +95,16 @@ const AboutUs = ({ data }) => {
 
   const title1 = data.allPrismicAboutUs.nodes[0].data.about_us_title.text
   const desc = data.allPrismicAboutUs.nodes[0].data.about_us_description.text
-  const title2 =
-    data.allPrismicAboutUs.nodes[0].data.meet_our_team_title.text
+  const title2 = data.allPrismicAboutUs.nodes[0].data.meet_our_team_title.text
 
   return (
     <Layout>
       <SEO title="About Us" />
+      <Section>
+        <h2 className={styles.titleHeading}>{title1}</h2>
+        <Text>{desc}</Text>
+      </Section>
       <Body>
-        <Section>
-          <h2 className={styles.mediumHeadingPrimary}>{title1}</h2>
-          <Text>{desc}</Text>
-        </Section>
         <Section>
           <h2 className={styles.mediumHeadingSecondary}>{title2}</h2>
           <ProfileSection>
@@ -124,32 +126,31 @@ const AboutUs = ({ data }) => {
 export const query = graphql`
   query AboutUs {
     allPrismicAboutUs {
-        nodes {
-          data {
-            about_us_description {
+      nodes {
+        data {
+          about_us_description {
+            text
+          }
+          about_us_title {
+            text
+          }
+          meet_our_team_title {
+            text
+          }
+          profile {
+            position {
               text
             }
-            about_us_title {
+            name {
               text
             }
-            meet_our_team_title {
-              text
-            }
-            profile {
-              position {
-                text
-              }
-              name {
-                text
-              }
-              headshot {
-                url
-              }
+            headshot {
+              url
             }
           }
         }
       }
-    
+    }
   }
 `
 

@@ -1,32 +1,55 @@
-.bigHeading{
-    font-family: DM Serif Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 63px;
-    color: #54504E;
-    
-    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(85, 224, 226, 0.6) 50%);
-    display: inline;
+.titleHeading {
+  font-family: DM Serif Text;
+  font-size: 64px;
+  line-height: 88px;
+  text-align: center;
+
+  padding-top: 60px;
+
+  color: #54504e;
 }
 
-.mediumHeadingPrimary{
-    font-family: DM Serif Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    color: #54504E;
-    
-    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(85, 224, 226, 0.5) 50%);
-    display: inline;
+.bigHeading {
+  font-family: DM Serif Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 63px;
+  color: #54504e;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(85, 224, 226, 0.6) 50%
+  );
+  display: inline;
 }
 
-.mediumHeadingSecondary{
-    font-family: DM Serif Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    color: #54504E;
-    
-    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(172, 52, 124, 0.2) 50%);
-    display: inline;
+.mediumHeadingPrimary {
+  font-family: DM Serif Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  color: #54504e;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(85, 224, 226, 0.5) 50%
+  );
+  display: inline;
+}
+
+.mediumHeadingSecondary {
+  font-family: DM Serif Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  color: #54504e;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(172, 52, 124, 0.2) 50%
+  );
+  display: inline;
 }
