@@ -1,0 +1,83 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Landing",
+          "useAsTitle" : true
+        }
+      },
+      "cover_photo" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Cover photo"
+        }
+      },
+      "home_page_heading" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Home page heading",
+          "placeholder" : "Our mission"
+        }
+      },
+      "home_page_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Home page description",
+          "placeholder" : "Our Mission Description"
+        }
+      },
+      "action_shot" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Action shot"
+        }
+      },
+      "get_involved" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "icon" : {
+              "type" : "Image",
+              "config" : {
+                "constraint" : {
+                  "width" : 153,
+                  "height" : 127
+                },
+                "thumbnails" : [ ],
+                "label" : "Icon"
+              }
+            },
+            "persona" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Persona",
+                "placeholder" : "VOLUNTEER"
+              }
+            },
+            "story" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Story",
+                "placeholder" : "Brief description of what Spread Love Foundation does and/or the opportunity to get involved as a ..."
+              }
+            }
+          },
+          "label" : "Get Involved"
+        }
+      },
+      "learn_more_button_text" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Learn more button text",
+          "placeholder" : "LEARN MORE"
+        }
+      }
+    }
+  }

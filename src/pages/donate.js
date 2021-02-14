@@ -1,13 +1,13 @@
-import React from "react";
-import Layout from "../components/layout";
-import styles from "../components/headings.module.css";
-import styled from "@emotion/styled";
-import SEO from "../components/seo";
-import ActionShot from "../components/donate/actionShot";
-import "@fontsource/red-hat-text";
-import "@fontsource/dm-serif-text";
-import { graphql } from "gatsby";
-import { Link } from "gatsby";
+import React from "react"
+import Layout from "../components/layout"
+import styles from "../components/headings.module.css"
+import styled from "@emotion/styled"
+import SEO from "../components/seo"
+import ActionShot from "../components/donate/actionShot"
+import "@fontsource/red-hat-text"
+import "@fontsource/dm-serif-text"
+import { graphql } from "gatsby"
+import { Link } from "gatsby"
 
 const FlexContainer = styled("div")`
   margin-top: 80px;
@@ -17,7 +17,7 @@ const FlexContainer = styled("div")`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-`;
+`
 
 const TextSection = styled("div")`
   flex-basis: 60%;
@@ -27,7 +27,7 @@ const TextSection = styled("div")`
   font-family: Red Hat Text;
   font-size: 26px;
   line-height: 32px;
-`;
+`
 
 const Heading = styled("div")`
   font-family: DM Serif Text;
@@ -35,7 +35,7 @@ const Heading = styled("div")`
   line-height: 66px;
 
   color: #54504e;
-`;
+`
 
 const Rectangle = styled("div")`
   height: 50px;
@@ -52,18 +52,22 @@ const Rectangle = styled("div")`
     text-decoration-line: underline;
     color: #ffffff;
   }
-`;
+`
 
 const Donate = ({ data }) => {
-  const page_data = data.prismic.allDonates.edges[0].node;
+  if (!data) {
+    return null;
+  }
+
+  const page_data = data.allPrismicDonate.nodes[0].data
   return (
     <Layout>
       <SEO title="Donate" />
       <FlexContainer>
         <ActionShot url={page_data.action_shot.url} />
         <TextSection>
-          <Heading>{page_data.title[0].text}</Heading>
-          <div>{page_data.tagline[0].text}</div>
+          <Heading>{page_data.title.text}</Heading>
+          <div>{page_data.tagline.text}</div>
           <br />
           <div>{page_data.description}</div>
           <br />
@@ -78,26 +82,31 @@ const Donate = ({ data }) => {
         </TextSection>
       </FlexContainer>
     </Layout>
-  );
-};
+  )
+}
 
 export const query = graphql`
   {
-    prismic {
-      allDonates {
-        edges {
-          node {
-            title
-            action_shot
-            tagline
-            description
-            button_description
-            _linkType
+    allPrismicDonate {
+      nodes {
+        data {
+          title {
+            text
           }
+          tagline {
+            text
+          }
+          button_description {
+            text
+          }
+          action_shot {
+            url
+          }
+          description
         }
       }
     }
   }
-`;
+`
 
-export default Donate;
+export default Donate

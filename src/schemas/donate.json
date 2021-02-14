@@ -1,0 +1,46 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Title",
+          "placeholder" : "Why Donate?"
+        }
+      },
+      "action_shot" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : {
+            "width" : 355,
+            "height" : 340
+          },
+          "thumbnails" : [ ],
+          "label" : "Action shot"
+        }
+      },
+      "tagline" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "paragraph",
+          "label" : "Tagline",
+          "placeholder" : "Spread Love Foundation is working to XYZ"
+        }
+      },
+      "description" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Description",
+          "placeholder" : "You should donate because XYZ"
+        }
+      },
+      "button_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph",
+          "label" : "Button description",
+          "placeholder" : "Donate now"
+        }
+      }
+    }
+  }

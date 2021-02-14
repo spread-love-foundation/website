@@ -28,9 +28,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-prismic-graphql`,
+      resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `spreadlovewebsite`,
+        schemas: {
+          about_us: require('./src/schemas/about_us.json'),
+          contact_us: require('./src/schemas/contact_us.json'),
+          donate: require('./src/schemas/donate.json'),
+          homepage: require('./src/schemas/homepage.json'),
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

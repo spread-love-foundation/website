@@ -1,13 +1,13 @@
-import React from "react";
-import { graphql } from "gatsby";
-import MissionText from "../components/index/missionText";
-import CoverPhoto from "../components/index/coverPhoto";
-import ActionShot from "../components/index/actionShot";
-import Layout from "../components/layout";
-import "../components/dummyStyle.css";
-import styled from "@emotion/styled";
-import styles from "../components/headings.module.css";
-import SEO from "../components/seo";
+import React from "react"
+import { graphql } from "gatsby"
+import MissionText from "../components/index/missionText"
+import CoverPhoto from "../components/index/coverPhoto"
+import ActionShot from "../components/index/actionShot"
+import Layout from "../components/layout"
+import "../components/dummyStyle.css"
+import styled from "@emotion/styled"
+import styles from "../components/headings.module.css"
+import SEO from "../components/seo"
 
 const Section = styled("div")`
   margin-top: 2em;
@@ -29,7 +29,7 @@ const Section = styled("div")`
     margin-right: 10em;
     margin-bottom: 6em;
   }
-`;
+`
 
 // flex-wrap prevents action shot image from compressing in a smaller screen
 const FlexContainer = styled("div")`
@@ -37,7 +37,7 @@ const FlexContainer = styled("div")`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-`;
+`
 
 const TextSection = styled("div")`
   flex-basis: 100%;
@@ -53,12 +53,12 @@ const TextSection = styled("div")`
   @media screen and (min-width: 1320px) {
     flex-basis: 70%;
   }
-`;
+`
 
 const GetInvolvedIcon = styled("img")`
   width: 153px;
   height: 127px;
-`;
+`
 
 const GetInvolvedContainer = styled("div")`
   width: 100%;
@@ -84,7 +84,7 @@ const GetInvolvedContainer = styled("div")`
 
     color: #ffffff;
   }
-`;
+`
 // const GetInvolvedRow = styled("div")``;
 
 // TODO:
@@ -93,24 +93,28 @@ const GetInvolvedContainer = styled("div")`
 //    (3) Add description to prismic
 //    (4) Fix padding of elements
 
-const LearnMoreButton = styled("div")``;
+const LearnMoreButton = styled("div")``
 
 const GetInvolvedCell = ({ icon, persona, story }) => (
   <div>
-    <GetInvolvedIcon src = {icon} alt = {"Get involved as a " + persona}/>
+    <GetInvolvedIcon src={icon} alt={"Get involved as a " + persona} />
     <p>
       <span style={{ fontWeight: "bold" }}>{persona + ": "}</span>
       {story}
     </p>
   </div>
-);
+)
 
 const IndexPage = ({ data }) => {
-  const page_data = data.prismic.allHomepages.edges[0].node;
-  const homePageHeading = page_data.home_page_heading[0].text;
-  const homePageDescription = page_data.home_page_description[0].text;
-  const cover_url = page_data.cover_photo.url;
-  const action_url = page_data.action_shot.url;
+  if (!data) {
+    return null;
+  }
+
+  const page_data = data.allPrismicHomepage.nodes[0].data
+  const homePageHeading = page_data.home_page_heading.text
+  const homePageDescription = page_data.home_page_description.text
+  const cover_url = page_data.cover_photo.url
+  const action_url = page_data.action_shot.url
 
   return (
     <Layout>
@@ -128,7 +132,7 @@ const IndexPage = ({ data }) => {
       <GetInvolvedContainer>
         <h1>Get Involved</h1>
         <FlexContainer>
-          {page_data.get_involved.map((narrative) => (
+          {page_data.get_involved.map(narrative => (
             <GetInvolvedCell
               icon={narrative.icon.url}
               persona={narrative.persona}
@@ -138,31 +142,41 @@ const IndexPage = ({ data }) => {
         </FlexContainer>
       </GetInvolvedContainer>
     </Layout>
-  );
-};
+  )
+}
 
 // page_data.get_involved.map(
 
 export const query = graphql`
   {
-    prismic {
-      allHomepages {
-        edges {
-          node {
-            cover_photo
-            home_page_heading
-            home_page_description
-            action_shot
-            get_involved {
-              icon
-              persona
-              story
+    allPrismicHomepage {
+      nodes {
+        data {
+          home_page_heading {
+            text
+          }
+          learn_more_button_text
+          title
+          home_page_description {
+            text
+          }
+          get_involved {
+            persona
+            story
+            icon {
+              url
             }
+          }
+          cover_photo {
+            url
+          }
+          action_shot {
+            url
           }
         }
       }
     }
   }
-`;
+`
 
-export default IndexPage;
+export default IndexPage

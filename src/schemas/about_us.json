@@ -1,0 +1,60 @@
+{
+    "Main" : {
+      "about_us_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "About us Title",
+          "placeholder" : "About Us"
+        }
+      },
+      "about_us_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "About Us Description",
+          "placeholder" : "Some text"
+        }
+      },
+      "meet_our_team_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Meet Our Team Title",
+          "placeholder" : "Meet Our Team"
+        }
+      },
+      "profile" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "headshot" : {
+              "type" : "Image",
+              "config" : {
+                "constraint" : { },
+                "thumbnails" : [ ],
+                "label" : "Headshot"
+              }
+            },
+            "name" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label" : "Name",
+                "placeholder" : "firstName lastName"
+              }
+            },
+            "position" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label" : "Position",
+                "placeholder" : "team position"
+              }
+            }
+          },
+          "label" : "Profile"
+        }
+      }
+    }
+  }
