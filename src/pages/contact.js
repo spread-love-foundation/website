@@ -73,6 +73,13 @@ const NewsletterBox = styled("div")`
   width: 100%;
   padding-bottom: 72px;
   background: #107e7e;
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
 `
 
 const NewsletterText = styled("div")`
@@ -90,31 +97,36 @@ const NewsletterText = styled("div")`
   }
 `
 
-const SignUpButton = styled("div")`
+const SignUpButton = styled("input")`
   background: #3b2a83;
   border-radius: 31px;
+  box-sizing: border-box;
+  border: 1.5px solid #3b2a83;
+
   margin-top: 52px;
   width: 250px;
-
   @media screen and (min-width: 450px) {
     width: 320px;
   }
 
-  p {
-    text-align: center;
+  text-align: center;
 
-    font-family: Red Hat Text;
-    font-size: 16px;
-    line-height: 50px;
-    color: #ffffff;
+  font-family: Red Hat Text;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 50px;
+  color: #ffffff;
 
-    @media screen and (min-width: 450px) {
-      font-size: 24px;
-    }
+  @media screen and (min-width: 450px) {
+    font-size: 24px;
   }
 `
 
-// TODO: make a reusable button for sign-up
+const StyledLink = styled("form")`
+  :hover {
+    text-decoration: none;
+  }
+`
 
 const Contact = ({ data }) => {
   if (!data) {
@@ -148,9 +160,21 @@ const Contact = ({ data }) => {
             {page_data.newsletter_title}
           </Heading>
           <NewsletterText>{page_data.newsletter_text}</NewsletterText>
-          <SignUpButton>
-            <p>{page_data.sign_up_button_text}</p>
-          </SignUpButton>
+          <StyledLink
+            action="https://gmail.us17.list-manage.com/subscribe/post"
+            method="POST"
+            target="_blank"
+          >
+            <input type="hidden" name="u" value="606170b66eed272715dfb6802" />
+            <input type="hidden" name="id" value="348ea0e3d0" />
+            <SignUpButton
+              type="submit"
+              name="submit"
+              value={page_data.sign_up_button_text}
+            />
+
+            <input type="hidden" name="mc_signupsource" value="hosted" />
+          </StyledLink>
         </PageMargin>
       </NewsletterBox>
     </Layout>

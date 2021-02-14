@@ -8,6 +8,7 @@ import "../components/dummyStyle.css"
 import styled from "@emotion/styled"
 import styles from "../components/headings.module.css"
 import SEO from "../components/seo"
+import { Link } from "gatsby"
 
 const Section = styled("div")`
   margin-top: 2em;
@@ -94,17 +95,15 @@ const GetInvolvedRow = styled("div")`
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  
+
   margin-left: 3rem;
 `
 
-// TODO:
-//    (1) Make element to hold flex column of icon and description
-//    (2) Add icon to prismic
-//    (3) Add description to prismic
-//    (4) Fix padding of elements
-
-const LearnMoreButton = styled("div")``
+const StyledLink = styled(Link)`
+  :hover {
+    text-decoration: none;
+  }
+`
 
 const GetInvolvedCell = ({ icon, persona, story }) => (
   <div
@@ -112,8 +111,8 @@ const GetInvolvedCell = ({ icon, persona, story }) => (
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      maxWidth:"18rem",
-      marginRight:"3rem"
+      maxWidth: "18rem",
+      marginRight: "3rem",
     }}
   >
     <GetInvolvedIcon src={icon} alt={"Get involved as a " + persona} />
@@ -123,6 +122,29 @@ const GetInvolvedCell = ({ icon, persona, story }) => (
     </p>
   </div>
 )
+
+const LearnMoreButton = styled("div")`
+  background: #3b2a83;
+  border-radius: 31px;
+  margin-top: 52px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+
+  p {
+    text-align: center;
+
+    font-family: Red Hat Text;
+    font-size: 16px;
+    line-height: 50px;
+    font-weight: bold;
+    color: #ffffff;
+
+    @media screen and (min-width: 450px) {
+      font-size: 24px;
+    }
+  }
+`
 
 const IndexPage = ({ data }) => {
   if (!data) {
@@ -160,12 +182,15 @@ const IndexPage = ({ data }) => {
             />
           ))}
         </GetInvolvedRow>
+        <StyledLink to="/about-us">
+          <LearnMoreButton>
+            <p>{page_data.learn_more_button_text}</p>
+          </LearnMoreButton>
+        </StyledLink>
       </GetInvolvedContainer>
     </Layout>
   )
 }
-
-// page_data.get_involved.map(
 
 export const query = graphql`
   {
