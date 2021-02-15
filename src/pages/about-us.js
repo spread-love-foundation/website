@@ -11,10 +11,7 @@ const Body = styled("div")`
   margin-left: 47px;
   margin-right: 47px;
   margin-top: 65px;
-
-  @media screen and (min-width: 500px) {
-    margin-right: 170px;
-  }
+  margin-bottom: 80px;
 `
 
 const Section = styled("div")`
@@ -164,6 +161,77 @@ const Position = styled("div")`
   text-align: center;
 `
 
+const ProfileSectionV2 = styled("div")`
+  margin-top: 100px;
+`
+
+const NameV2 = styled("div")`
+  font-family: Red Hat Text;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+
+  color: #54504e;
+`
+
+const ProfilePictureV2 = styled("img")`
+  width: 150px;
+  height: 150px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 1051px) {
+    width: 200px;
+    height: 200px;
+  }
+`
+
+const PositionV2 = styled("div")`
+  font-family: Red Hat Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+
+  color: #54504e;
+`
+
+const Bio = styled("div")`
+  font-family: Red Hat Display;
+  font-size: 14px;
+  line-height: 19px;
+`
+
+// @media screen and (min-width: 970px) {
+//   margin-left: 80px;
+// }
+const ProfileText = styled("div")`
+  flex-basis: 100%;
+
+  @media screen and (min-width: 761px) {
+    flex-basis: 70%;
+  }
+`
+
+const ProfileV2 = ({ headshot, name, position, bio }) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      marginTop: "40px",
+      marginBottom: "60px",
+    }}
+  >
+    <ProfilePictureV2 src={headshot} />
+    <ProfileText>
+      <NameV2>{name}</NameV2> <PositionV2>{position}</PositionV2>
+      <Bio>{bio}</Bio>
+    </ProfileText>
+  </div>
+)
+
 const Profile = ({ headshot, name, position }) => (
   // marginRight works well, except it depends on the ProfileSection margin
   <div style={{ marginRight: "60px", marginBottom: "60px" }}>
@@ -205,21 +273,20 @@ const AboutUs = ({ data }) => {
         </InfoColumns>
       </InfoColumnsSection>
       <Body>
-        <Section>
           <h2 className={styles.mediumHeadingSecondary}>
             {page_data.meet_our_team_title.text}
           </h2>
-          <ProfileSection>
+          <ProfileSectionV2>
             {page_data.profile.map(profile => (
-              <Profile
-                headshot={profile.headshot.url}
+              <ProfileV2
                 key={profile.name.text}
+                headshot={profile.headshot.url}
                 name={profile.name.text}
                 position={profile.position.text}
+                bio={profile.bio}
               />
             ))}
-          </ProfileSection>
-        </Section>
+          </ProfileSectionV2>
       </Body>
     </Layout>
   )
@@ -247,6 +314,7 @@ export const query = graphql`
             position {
               text
             }
+            bio
           }
           meet_our_team_title {
             text

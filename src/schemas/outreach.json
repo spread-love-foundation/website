@@ -1,0 +1,88 @@
+{
+  "Main" : {
+    "outreach_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Outreach title",
+        "placeholder" : "Outreach"
+      }
+    },
+    "tagline" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Tagline",
+        "placeholder" : "Short tagline would go here about outreach"
+      }
+    },
+    "section_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Section title",
+        "placeholder" : "Section title"
+      }
+    },
+    "section_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Section description",
+        "placeholder" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    },
+    "section_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 350,
+          "height" : 350
+        },
+        "thumbnails" : [ ],
+        "label" : "Section image"
+      }
+    },
+    "quote" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Quote"
+      }
+    },
+    "quote_author" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Quote author"
+      }
+    },
+    "outreach_events" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 244,
+                "height" : 244
+              },
+              "thumbnails" : [ ],
+              "label" : "Image"
+            }
+          },
+          "event_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Event title",
+              "placeholder" : "Blood drive"
+            }
+          },
+          "description" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Description"
+            }
+          }
+        },
+        "label" : "Outreach events"
+      }
+    }
+  }
+}
