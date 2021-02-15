@@ -175,7 +175,6 @@ const IndexPage = ({ data }) => {
         <GetInvolvedRow>
           {page_data.get_involved.map(narrative => (
             <GetInvolvedCell
-              styles={{ maxWidth: "400px" }}
               icon={narrative.icon.url}
               persona={narrative.persona}
               story={narrative.story}

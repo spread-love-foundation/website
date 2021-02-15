@@ -94,6 +94,46 @@ const QuoteAuthor = styled("div")`
   color: #464646;
 `
 
+const InfoColumnsSection = styled("div")`
+  background: #55e0e2;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  p {
+    font-family: Red Hat Display;
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+  }
+`
+
+const InfoColumns = styled("div")`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  margin-left: 3rem;
+`
+
+const InfoCell = ({ text, icon_url }) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      maxWidth: "21rem",
+      marginRight: "3rem",
+      paddingBottom: "3rem",
+    }}
+  >
+    <p>{text}</p>
+    <br/>
+    <img src={icon_url} alt="asdfa" />
+  </div>
+)
+
 const ProfileSection = styled("div")`
   margin-top: 100px;
 
@@ -166,17 +206,22 @@ const AboutUs = ({ data }) => {
         <br />
         <OurVisionText>{page_data.vision_description}</OurVisionText>
       </OurVisionSection>
-      <Quote>
-        {page_data.quote}
-      </Quote>
+      <Quote>{page_data.quote}</Quote>
       <QuoteAuthor>{page_data.quote_author}</QuoteAuthor>
+      <InfoColumnsSection>
+        <InfoColumns>
+          {page_data.info_column.map(info_column => (
+            <InfoCell text={info_column.text} icon_url={info_column.icon.url} />
+          ))}
+        </InfoColumns>
+      </InfoColumnsSection>
       <Body>
         <Section>
           <h2 className={styles.mediumHeadingSecondary}>
             {page_data.meet_our_team_title.text}
           </h2>
           <ProfileSection>
-            {data.allPrismicAboutUs.nodes[0].data.profile.map(profile => (
+            {page_data.profile.map(profile => (
               <Profile
                 headshot={profile.headshot.url}
                 key={profile.name.text}
@@ -221,6 +266,12 @@ export const query = graphql`
             text
           }
           about_us_description {
+            text
+          }
+          info_column {
+            icon {
+              url
+            }
             text
           }
         }

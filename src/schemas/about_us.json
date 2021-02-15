@@ -52,6 +52,32 @@
         "label" : "Quote author"
       }
     },
+    "info_column" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "icon" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 190,
+                "height" : 170
+              },
+              "thumbnails" : [ ],
+              "label" : "Icon"
+            }
+          },
+          "text" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "text",
+              "placeholder" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            }
+          }
+        },
+        "label" : "Info Column"
+      }
+    },
     "meet_our_team_title" : {
       "type" : "StructuredText",
       "config" : {
