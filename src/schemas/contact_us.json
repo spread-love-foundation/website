@@ -1,58 +1,69 @@
 {
-    "Main" : {
-      "title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Title",
-          "placeholder" : "Contact Us"
-        }
-      },
-      "contact_caption" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Contact Caption",
-          "placeholder" : "Contact us at Spread Love Foundation for inquiries about x, y ,z"
-        }
-      },
-      "email" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Email",
-          "placeholder" : "xyz@gmail.com"
-        }
-      },
-      "image" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : {
-            "width" : 275,
-            "height" : 275
-          },
-          "thumbnails" : [ ],
-          "label" : "Image"
-        }
-      },
-      "newsletter_title" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Newsletter title",
-          "placeholder" : "Keep up with our initatives"
-        }
-      },
-      "newsletter_text" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Newsletter text",
-          "placeholder" : "Sign up for our newsletter to stay up to date with our current projects and initiatives. Feel free to contact us with any questions with the information listed above."
-        }
-      },
-      "sign_up_button_text" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Sign up button text",
-          "placeholder" : "Newsletter Sign Up"
-        }
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Title",
+        "placeholder" : "Contact Us"
+      }
+    },
+    "contact_caption" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Contact Caption",
+        "placeholder" : "Contact us at Spread Love Foundation for inquiries about x, y ,z"
+      }
+    },
+    "email_icon" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 33,
+          "height" : 33
+        },
+        "thumbnails" : [ ],
+        "label" : "Email icon"
+      }
+    },
+    "email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Email",
+        "placeholder" : "xyz@gmail.com"
+      }
+    },
+    "image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 275,
+          "height" : 275
+        },
+        "thumbnails" : [ ],
+        "label" : "Image"
+      }
+    },
+    "newsletter_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Newsletter title",
+        "placeholder" : "Keep up with our initatives"
+      }
+    },
+    "newsletter_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Newsletter text",
+        "placeholder" : "Sign up for our newsletter to stay up to date with our current projects and initiatives. Feel free to contact us with any questions with the information listed above."
+      }
+    },
+    "sign_up_button_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Sign up button text",
+        "placeholder" : "Newsletter Sign Up"
       }
     }
   }
+}

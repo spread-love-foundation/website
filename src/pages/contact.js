@@ -145,7 +145,7 @@ const Contact = ({ data }) => {
             <br />
             <br />
             <EmailRow>
-              <img src="/icons/mail_icon.png"></img>
+              <img src={page_data.email_icon.url}></img>
               <a href={"mailto: " + page_data.email}>
                 <p>{page_data.email}</p>
               </a>
@@ -193,6 +193,9 @@ export const query = graphql`
           newsletter_title
           newsletter_text
           image {
+            url
+          }
+          email_icon {
             url
           }
           email

@@ -1,127 +1,127 @@
 {
-  "Main": {
-    "about_us_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "About us Title",
-        "placeholder": "About Us"
+  "Main" : {
+    "about_us_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "About us Title",
+        "placeholder" : "About Us"
       }
     },
-    "about_us_description": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-        "label": "About Us Description",
-        "placeholder": "Some text"
+    "about_us_description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label" : "About Us Description",
+        "placeholder" : "Some text"
       }
     },
-    "vision_title": {
-      "type": "Text",
-      "config": {
-        "label": "Vision title",
-        "placeholder": "Our Vision"
+    "vision_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Vision title",
+        "placeholder" : "Our Vision"
       }
     },
-    "vision_description": {
-      "type": "Text",
-      "config": {
-        "label": "Vision description"
+    "vision_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Vision description"
       }
     },
-    "vision_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {
-          "width": 800,
-          "height": 680
+    "vision_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 800,
+          "height" : 680
         },
-        "thumbnails": [],
-        "label": "Vision image"
+        "thumbnails" : [ ],
+        "label" : "Vision image"
       }
     },
-    "quote": {
-      "type": "Text",
-      "config": {
-        "label": "Quote"
+    "quote" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Quote"
       }
     },
-    "quote_author": {
-      "type": "Text",
-      "config": {
-        "label": "Quote author"
+    "quote_author" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Quote author"
       }
     },
-    "info_column": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "icon": {
-            "type": "Image",
-            "config": {
-              "constraint": {
-                "width": 190,
-                "height": 170
+    "info_column" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "icon" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 190,
+                "height" : 170
               },
-              "thumbnails": [],
-              "label": "Icon"
+              "thumbnails" : [ ],
+              "label" : "Icon"
             }
           },
-          "text": {
-            "type": "Text",
-            "config": {
-              "label": "text",
-              "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "text" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "text",
+              "placeholder" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
           }
         },
-        "label": "Info Column"
+        "label" : "Info Column"
       }
     },
-    "meet_our_team_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Meet Our Team Title",
-        "placeholder": "Meet Our Team"
+    "meet_our_team_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Meet Our Team Title",
+        "placeholder" : "Meet Our Team"
       }
     },
-    "profile": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "headshot": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "Headshot"
+    "profile" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "headshot" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Headshot"
             }
           },
-          "name": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-              "label": "Name",
-              "placeholder": "firstName lastName"
+          "name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label" : "Name",
+              "placeholder" : "firstName lastName"
             }
           },
-          "position": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-              "label": "Position",
-              "placeholder": "team position"
+          "position" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label" : "Position",
+              "placeholder" : "team position"
             }
           },
-          "bio": {
-            "type": "Text",
-            "config": {
-              "label": "Bio"
+          "bio" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Bio"
             }
           }
         },
-        "label": "Profile"
+        "label" : "Profile"
       }
     }
   }
