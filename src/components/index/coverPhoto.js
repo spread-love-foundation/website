@@ -15,7 +15,8 @@ const Background = styled("div")`
         height: 850px;
     }
     
-    background: url(${props => props.background}) no-repeat;
+    background: url(${props => props.background}), #B26E95;
+    background-repeat: no-repeat;
 `
 
 const ContentContainer = styled("div")`

@@ -37,7 +37,7 @@ const Heading = styled("div")`
   color: #54504e;
 `
 
-const Rectangle = styled("div")`
+const DonateButton = styled("div")`
   height: 50px;
   width: 85%;
   background: #3b2a83;
@@ -75,9 +75,9 @@ const Donate = ({ data }) => {
             href="https://charity.gofundme.com/o/en/campaign/spread-love-foundation"
             target="_blank"
           >
-            <Rectangle>
+            <DonateButton>
               <p>{"Click here to securely donate to our GoFundMe"}</p>
-            </Rectangle>
+            </DonateButton>
           </a>
         </TextSection>
       </FlexContainer>

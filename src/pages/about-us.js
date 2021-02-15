@@ -23,17 +23,75 @@ const Section = styled("div")`
     flex-direction: column
 `
 
-const Text = styled("div")`
+const TaglineText = styled("div")`
   margin-top: 40px;
-  text-align: center;
   margin-left: 20%;
   margin-right: 20%;
+
+  text-align: center;
 
   font-family: Red Hat Display;
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
-  line-height: 130.7%;
+  line-height: 34px;
+`
+
+const Subtitle = styled("div")`
+  font-family: DM Serif Text;
+  font-size: 48px;
+  line-height: 66px;
+
+  color: #ffffff;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`
+
+const OurVisionSection = styled("div")`
+  width: 100%;
+  background: #983872;
+  background-image: url(${props => props.background});
+  background-position: 630px 80%;
+  background-repeat: no-repeat;
+
+  padding-top: 130px;
+  padding-bottom: 150px;
+  padding-left: 100px;
+`
+
+const OurVisionText = styled("div")`
+  font-family: Red Hat Text;
+  font-size: 26px;
+  line-height: 34px;
+
+  max-width: 460px;
+  margin-right: 40px;
+
+  color: #ffffff;
+`
+
+const Quote = styled("div")`
+  font-family: DM Serif Display;
+  font-size: 48px;
+  line-height: 66px;
+
+  margin-top: 80px;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+
+  color: #464646;
+`
+
+const QuoteAuthor = styled("div")`
+  font-family: DM Serif Display;
+  font-size: 36px;
+  line-height: 49px;
+  text-align: center;
+
+  margin-bottom: 40px;
+
+  color: #464646;
 `
 
 const ProfileSection = styled("div")`
@@ -93,20 +151,30 @@ const AboutUs = ({ data }) => {
     return null
   }
 
-  const title1 = data.allPrismicAboutUs.nodes[0].data.about_us_title.text
-  const desc = data.allPrismicAboutUs.nodes[0].data.about_us_description.text
-  const title2 = data.allPrismicAboutUs.nodes[0].data.meet_our_team_title.text
+  const page_data = data.allPrismicAboutUs.nodes[0].data
 
   return (
     <Layout>
       <SEO title="About Us" />
       <Section>
-        <h2 className={styles.titleHeading}>{title1}</h2>
-        <Text>{desc}</Text>
+        <h2 className={styles.titleHeading}>{page_data.about_us_title.text}</h2>
+        <TaglineText>{page_data.about_us_description.text}</TaglineText>
       </Section>
+      <OurVisionSection background={page_data.vision_image.url}>
+        <Subtitle>{page_data.vision_title}</Subtitle>
+        <br />
+        <br />
+        <OurVisionText>{page_data.vision_description}</OurVisionText>
+      </OurVisionSection>
+      <Quote>
+        {page_data.quote}
+      </Quote>
+      <QuoteAuthor>{page_data.quote_author}</QuoteAuthor>
       <Body>
         <Section>
-          <h2 className={styles.mediumHeadingSecondary}>{title2}</h2>
+          <h2 className={styles.mediumHeadingSecondary}>
+            {page_data.meet_our_team_title.text}
+          </h2>
           <ProfileSection>
             {data.allPrismicAboutUs.nodes[0].data.profile.map(profile => (
               <Profile
@@ -128,25 +196,32 @@ export const query = graphql`
     allPrismicAboutUs {
       nodes {
         data {
-          about_us_description {
+          vision_title
+          vision_image {
+            url
+          }
+          vision_description
+          quote_author
+          quote
+          profile {
+            headshot {
+              url
+            }
+            name {
+              text
+            }
+            position {
+              text
+            }
+          }
+          meet_our_team_title {
             text
           }
           about_us_title {
             text
           }
-          meet_our_team_title {
+          about_us_description {
             text
-          }
-          profile {
-            position {
-              text
-            }
-            name {
-              text
-            }
-            headshot {
-              url
-            }
           }
         }
       }
