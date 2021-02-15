@@ -32,10 +32,11 @@ module.exports = {
       options: {
         repositoryName: `spreadlovewebsite`,
         schemas: {
-          about_us: require('./src/schemas/about_us.json'),
-          contact_us: require('./src/schemas/contact_us.json'),
-          donate: require('./src/schemas/donate.json'),
-          homepage: require('./src/schemas/homepage.json'),
+          about_us: require("./src/schemas/about_us.json"),
+          contact_us: require("./src/schemas/contact_us.json"),
+          donate: require("./src/schemas/donate.json"),
+          homepage: require("./src/schemas/homepage.json"),
+          outreach: require("./src/schemas/outreach.json"),
         },
       },
     },

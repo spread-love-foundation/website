@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import styles from "../components/headings.module.css"
 import styled from "@emotion/styled"
 import SEO from "../components/seo"
+import TitleTag from "../components/titleTag"
 import "@fontsource/red-hat-display"
 import { graphql } from "gatsby"
 
@@ -21,20 +22,6 @@ const Section = styled("div")`
 
     display: flex
     flex-direction: column
-`
-
-const TaglineText = styled("div")`
-  margin-top: 40px;
-  margin-left: 20%;
-  margin-right: 20%;
-
-  text-align: center;
-
-  font-family: Red Hat Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 26px;
-  line-height: 34px;
 `
 
 const Subtitle = styled("div")`
@@ -76,8 +63,8 @@ const Quote = styled("div")`
   line-height: 66px;
 
   margin-top: 80px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
   text-align: center;
 
   color: #464646;
@@ -129,7 +116,7 @@ const InfoCell = ({ text, icon_url }) => (
     }}
   >
     <p>{text}</p>
-    <br/>
+    <br />
     <img src={icon_url} alt="asdfa" />
   </div>
 )
@@ -197,8 +184,10 @@ const AboutUs = ({ data }) => {
     <Layout>
       <SEO title="About Us" />
       <Section>
-        <h2 className={styles.titleHeading}>{page_data.about_us_title.text}</h2>
-        <TaglineText>{page_data.about_us_description.text}</TaglineText>
+        <TitleTag
+          title={page_data.about_us_title.text}
+          tagline={page_data.about_us_description.text}
+        />
       </Section>
       <OurVisionSection background={page_data.vision_image.url}>
         <Subtitle>{page_data.vision_title}</Subtitle>

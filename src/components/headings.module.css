@@ -4,7 +4,7 @@
   line-height: 88px;
   text-align: center;
 
-  padding-top: 60px;
+  padding-top: 50px;
 
   color: #54504e;
 }
@@ -50,6 +50,19 @@
     180deg,
     rgba(255, 255, 255, 0) 50%,
     rgba(172, 52, 124, 0.2) 50%
+  );
+  display: inline;
+}
+
+.smallHeadingPrimary {
+  font-family: DM Serif Text;
+  font-size: 36px;
+  color: #54504e;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(85, 224, 226, 0.5) 50%
   );
   display: inline;
 }

@@ -43,7 +43,7 @@ const Header = ({ siteTitle }) => (
           <Link
             className={styles.menuitem}
             activeClassName={styles.activemenuitem}
-            to="/404"
+            to="/outreach"
             style={{ textDecoration: `none` }}
           >
             OUTREACH

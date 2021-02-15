@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "../components/layout"
-import styles from "../components/headings.module.css"
 import styled from "@emotion/styled"
 import SEO from "../components/seo"
 import ActionShot from "../components/donate/actionShot"
