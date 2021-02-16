@@ -7,6 +7,7 @@ import "@fontsource/red-hat-text"
 import "@fontsource/dm-serif-text"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
+import useWindowDimensions from "../components/windowDimensions"
 
 const FlexContainer = styled("div")`
   margin-top: 80px;
@@ -42,6 +43,10 @@ const DonateButton = styled("div")`
   background: #3b2a83;
   border-radius: 31px;
 
+  :hover {
+    background: #983872;
+  }
+
   p {
     text-align: center;
 
@@ -54,11 +59,14 @@ const DonateButton = styled("div")`
 `
 
 const Donate = ({ data }) => {
+  const { _, width } = useWindowDimensions()
   if (!data) {
-    return null;
+    return null
   }
 
   const page_data = data.allPrismicDonate.nodes[0].data
+  const useAllButtonText = width > 1100
+
   return (
     <Layout>
       <SEO title="Donate" />
@@ -75,7 +83,11 @@ const Donate = ({ data }) => {
             target="_blank"
           >
             <DonateButton>
-              <p>{"Click here to securely donate to our GoFundMe"}</p>
+              <p>
+                {useAllButtonText
+                  ? page_data.button_description.text
+                  : "Donate"}
+              </p>
             </DonateButton>
           </a>
         </TextSection>

@@ -22,6 +22,7 @@ const ContactUsSection = styled("div")`
 const ContactUsTextSection = styled("div")`
   flex-basis: 60%;
   padding-top: 20px;
+  padding-bottom: 40px;
 `
 
 const Heading = styled("div")`
@@ -66,6 +67,11 @@ const EmailRow = styled("div")`
     @media screen and (min-width: 450px) {
       font-size: 24px;
     }
+  }
+
+  a {
+    text-decoration-line: underline;
+    color: #983872;
   }
 `
 
