@@ -120,52 +120,9 @@ const InfoCell = ({ text, icon_url }) => (
 
 const ProfileSection = styled("div")`
   margin-top: 100px;
-
-  display: flex;
-  flex-wrap: wrap;
-
-  @media screen and (min-width: 500px) {
-    margin-right: -60px;
-  }
 `
 
 const Name = styled("div")`
-  font-family: Red Hat Text;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 26px;
-
-  text-align: center;
-`
-
-const ProfilePicture = styled("img")`
-  width: 200px;
-  height: 200px;
-
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media screen and (min-width: 500px) {
-    width: 327px;
-    height: 327px;
-  }
-`
-
-const Position = styled("div")`
-  font-family: Red Hat Text;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-
-  text-align: center;
-`
-
-const ProfileSectionV2 = styled("div")`
-  margin-top: 100px;
-`
-
-const NameV2 = styled("div")`
   font-family: Red Hat Text;
   font-style: normal;
   font-weight: bold;
@@ -175,7 +132,7 @@ const NameV2 = styled("div")`
   color: #54504e;
 `
 
-const ProfilePictureV2 = styled("img")`
+const ProfilePicture = styled("img")`
   width: 150px;
   height: 150px;
   margin-right: 50px;
@@ -187,7 +144,7 @@ const ProfilePictureV2 = styled("img")`
   }
 `
 
-const PositionV2 = styled("div")`
+const Position = styled("div")`
   font-family: Red Hat Text;
   font-style: normal;
   font-weight: normal;
@@ -203,9 +160,6 @@ const Bio = styled("div")`
   line-height: 19px;
 `
 
-// @media screen and (min-width: 970px) {
-//   margin-left: 80px;
-// }
 const ProfileText = styled("div")`
   flex-basis: 100%;
 
@@ -214,7 +168,7 @@ const ProfileText = styled("div")`
   }
 `
 
-const ProfileV2 = ({ headshot, name, position, bio }) => (
+const Profile = ({ headshot, name, position, bio }) => (
   <div
     style={{
       display: "flex",
@@ -224,20 +178,11 @@ const ProfileV2 = ({ headshot, name, position, bio }) => (
       marginBottom: "60px",
     }}
   >
-    <ProfilePictureV2 src={headshot} />
+    <ProfilePicture src={headshot} />
     <ProfileText>
-      <NameV2>{name}</NameV2> <PositionV2>{position}</PositionV2>
+      <Name>{name}</Name> <Position>{position}</Position>
       <Bio>{bio}</Bio>
     </ProfileText>
-  </div>
-)
-
-const Profile = ({ headshot, name, position }) => (
-  // marginRight works well, except it depends on the ProfileSection margin
-  <div style={{ marginRight: "60px", marginBottom: "60px" }}>
-    <ProfilePicture src={headshot} alt={name + "headshot"} />
-    <Name> {name} </Name>
-    <Position> {position} </Position>
   </div>
 )
 
@@ -273,20 +218,20 @@ const AboutUs = ({ data }) => {
         </InfoColumns>
       </InfoColumnsSection>
       <Body>
-          <h2 className={styles.mediumHeadingSecondary}>
-            {page_data.meet_our_team_title.text}
-          </h2>
-          <ProfileSectionV2>
-            {page_data.profile.map(profile => (
-              <ProfileV2
-                key={profile.name.text}
-                headshot={profile.headshot.url}
-                name={profile.name.text}
-                position={profile.position.text}
-                bio={profile.bio}
-              />
-            ))}
-          </ProfileSectionV2>
+        <h2 className={styles.mediumHeadingSecondary}>
+          {page_data.meet_our_team_title.text}
+        </h2>
+        <ProfileSection>
+          {page_data.profile.map(profile => (
+            <Profile
+              key={profile.name.text}
+              headshot={profile.headshot.url}
+              name={profile.name.text}
+              position={profile.position.text}
+              bio={profile.bio}
+            />
+          ))}
+        </ProfileSection>
       </Body>
     </Layout>
   )

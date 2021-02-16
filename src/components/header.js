@@ -23,16 +23,6 @@ const Header = ({ siteTitle }) => (
           <Link
             className={styles.menuitem}
             activeClassName={styles.activemenuitem}
-            to="/"
-            style={{ textDecoration: `none` }}
-          >
-            OUR MISSION
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link
-            className={styles.menuitem}
-            activeClassName={styles.activemenuitem}
             to="/about-us"
             style={{ textDecoration: `none` }}
           >
